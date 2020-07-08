@@ -4,7 +4,6 @@ import android.os.Handler
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 /**
@@ -16,8 +15,8 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 @ExperimentalCoroutinesApi
 class LoginViewModel @ViewModelInject constructor() : ViewModel() {
 
-    private val _openPageHome = MutableLiveData<Boolean>()
-    val openPageHome get() = _openPageHome
+    private val _openPageDashboard = MutableLiveData<Boolean>()
+    val openPageDashboard get() = _openPageDashboard
 
     private val _loadingSignIn = MutableLiveData<Boolean>()
     val loadingSignIn get() = _loadingSignIn
@@ -30,7 +29,7 @@ class LoginViewModel @ViewModelInject constructor() : ViewModel() {
             _errorInputEmpty.value = null
             _loadingSignIn.value = true
             Handler().postDelayed({
-                _openPageHome.value = true
+                _openPageDashboard.value = true
                 _loadingSignIn.value = false
             }, 2000)
         } else {

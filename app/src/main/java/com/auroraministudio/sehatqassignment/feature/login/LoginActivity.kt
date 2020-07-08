@@ -9,11 +9,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.auroraministudio.sehatqassignment.R
 import com.auroraministudio.sehatqassignment.databinding.ActivityLoginBinding
+import com.auroraministudio.sehatqassignment.feature.dashboard.view.DashboardActivity
 import com.auroraministudio.sehatqassignment.utils.getTextFromInput
 import com.auroraministudio.sehatqassignment.utils.hideKeyboard
 import com.auroraministudio.sehatqassignment.utils.setFromHtmlTv
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalCoroutinesApi
@@ -59,7 +59,7 @@ class LoginActivity : AppCompatActivity() {
             hideKeyboard()
             loginViewModel.signInEmail(
                 getTextFromInput(binding.etUsernameLogin),
-                getTextFromInput(input_password_login)
+                getTextFromInput(binding.inputPasswordLogin)
             )
         }
     }
@@ -70,5 +70,14 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
             }
         })
+
+        loginViewModel.openPageDashboard.observe(this, Observer {
+            if (it != null || it == true) openDashboardPage()
+        })
+    }
+
+    private fun openDashboardPage() {
+        DashboardActivity.start(this)
+        finish()
     }
 }

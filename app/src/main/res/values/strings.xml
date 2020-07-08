@@ -10,4 +10,10 @@
     <string name="sign_with_facebook">Sign in with Facebook</string>
     <string name="sign_with_google">Sign in with Google</string>
     <string name="msg_exit_double_tap">Tap again to exit</string>
+    <string name="home">Home</string>
+    <string name="feed">Feed</string>
+    <string name="cart">Cart</string>
+    <string name="profile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

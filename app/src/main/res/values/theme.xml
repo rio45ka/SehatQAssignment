@@ -2,18 +2,14 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
         <item name="fontFamily">@font/google_sans</item>
-
         <item name="android:windowBackground">@color/windowBackground</item>
         <item name="android:statusBarColor">@color/statusBarColor</item>
-
         <item name="actionBarStyle">@style/Widget.MaterialComponents.ActionBar.Primary</item>
-
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
     </style>
 
     <!-- The theme without ActionBar -->
@@ -23,20 +19,19 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@color/windowBackground</item>
-
     </style>
 
+    <!-- The theme for Fullscreen -->
     <style name="AppTheme.Fullscreen">
         <item name="android:fontFamily">@font/google_sans</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:statusBarColor">@color/windowBackground</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
     </style>
 
     <!-- The splash theme to set the background with your splash screen drawable -->
-    <style name="AppTheme.Splash" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="SplashTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_screen</item>
         <item name="android:statusBarColor">@color/textColor</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>

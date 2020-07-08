@@ -14,11 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".feature.home.HomeActivity"
+            android:name=".feature.dashboard.view.DashboardActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".feature.login.LoginActivity"
-            android:theme="@style/AppTheme.Splash"
+            android:theme="@style/SplashTheme"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
