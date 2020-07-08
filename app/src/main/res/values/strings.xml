@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">SehatQAsignment</string>
+    <string name="app_name">SehatQ</string>
+    <string name="fb_app_id">311713433358616</string>
+    <string name="fb_app_secret">772174a88480ce652745779ae17690d7</string>
+    <string name="password">Password</string>
+    <string name="username_email">Username/Email</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="sign_in">Sign In</string>
+    <string name="or">or</string>
+    <string name="sign_with_facebook">Sign in with Facebook</string>
+    <string name="sign_with_google">Sign in with Google</string>
+    <string name="msg_exit_double_tap">Tap again to exit</string>
 </resources>

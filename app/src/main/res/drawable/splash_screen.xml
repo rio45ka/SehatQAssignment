@@ -1,0 +1,13 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:opacity="opaque">
+
+    <item android:drawable="@color/textColor" />
+
+    <!-- App logo -->
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/ic_heart_logo" />
+    </item>
+
+</layer-list>

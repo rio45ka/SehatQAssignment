@@ -40,18 +40,11 @@ fun View.invisible() {
     }
 }
 
-fun openWebPage(url: String, ctx: Context) {
-    try {
-        val webPage = Uri.parse(url)
-        val intent = Intent(Intent.ACTION_VIEW, webPage)
-        ctx.startActivity(intent)
-    } catch (e: ActivityNotFoundException) {
-        Toast.makeText(
-            ctx,
-            "Terjadi kesalahan saat membuka link, Install aplikasi browser!",
-            Toast.LENGTH_SHORT
-        ).show()
-        e.printStackTrace()
+fun setFromHtmlTv(content: String, tv: TextView) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        tv.text = Html.fromHtml(content, Html.FROM_HTML_MODE_LEGACY)
+    } else {
+        tv.text = Html.fromHtml(content)
     }
 }
 

@@ -98,6 +98,15 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
 
+    // Auth
+    implementation 'com.google.firebase:firebase-auth:19.3.2'
+    implementation 'com.google.android.gms:play-services-auth:18.0.0'
+    implementation 'com.facebook.android:facebook-login:4.42.0'
+
+    // Size dimens
+    implementation "com.intuit.ssp:ssp-android:$sdpssp"
+    implementation "com.intuit.sdp:sdp-android:$sdpssp"
+
     // Testing
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
