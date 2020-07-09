@@ -6,7 +6,7 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.auroraministudio.sehatqassignment.R
-import com.auroraministudio.sehatqassignment.data.remote.Category
+import com.auroraministudio.sehatqassignment.domain.model.Category
 import com.auroraministudio.sehatqassignment.databinding.ItemCategoryBinding
 
 /**

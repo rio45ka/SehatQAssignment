@@ -7,7 +7,7 @@
 
         <variable
             name="category"
-            type="com.auroraministudio.sehatqassignment.data.remote.Category" />
+            type="com.auroraministudio.sehatqassignment.domain.model.Category" />
 
         <variable
             name="clickListener"

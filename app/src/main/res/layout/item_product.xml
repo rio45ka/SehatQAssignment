@@ -7,7 +7,7 @@
 
         <variable
             name="product"
-            type="com.auroraministudio.sehatqassignment.data.remote.Product" />
+            type="com.auroraministudio.sehatqassignment.domain.model.Product" />
 
         <variable
             name="clickListener"

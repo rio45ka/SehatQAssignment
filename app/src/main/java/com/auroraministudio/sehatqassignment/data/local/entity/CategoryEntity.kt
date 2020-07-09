@@ -2,7 +2,7 @@ package com.auroraministudio.sehatqassignment.data.local.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.auroraministudio.sehatqassignment.data.remote.Category
+import com.auroraministudio.sehatqassignment.domain.model.Category
 import com.auroraministudio.sehatqassignment.utils.Const
 
 /**
