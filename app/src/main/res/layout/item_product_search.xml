@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="product"
+            type="com.auroraministudio.sehatqassignment.domain.model.Product" />
+
+        <variable
+            name="clickListener"
+            type="com.auroraministudio.sehatqassignment.feature.search.presentation.adapter.SearchProductClickListener" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_item_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="15dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        android:onClick="@{() -> clickListener.onClick(product)}"
+        android:layout_marginEnd="15dp"
+        app:cardCornerRadius="7.5dp"
+        app:elevation="3dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/padding_medium"
+            android:background="@color/windowBackground">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_item_search_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/_115sdp" />
+
+            <ImageView
+                android:id="@+id/iv_item_product"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_centerHorizontal="true"
+                android:scaleType="centerCrop"
+                app:setImageUrl="@{product.imageUrl}"
+                android:layout_margin="@dimen/padding_medium"
+                app:layout_constraintEnd_toEndOf="@+id/gl_item_search_product"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@color/colorAccent" />
+
+            <TextView
+                android:id="@+id/tv_title_item_product"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/padding_medium"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{product.title}"
+                android:textColor="@color/textColor"
+                android:layout_marginTop="@dimen/padding_medium"
+                android:textSize="@dimen/text_normal"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/gl_item_search_product"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Product 11" />
+
+            <ImageView
+                android:id="@+id/iv_flag_loved"
+                android:layout_width="@dimen/_16sdp"
+                android:layout_height="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/padding_medium"
+                app:flagImageLoved="@{product.loved}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:srcCompat="@drawable/v_ic_love_normal" />
+
+            <TextView
+                android:id="@+id/tv_price_item_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_normal"
+                android:textColor="@color/textColor"
+                app:layout_constraintTop_toTopOf="@+id/iv_flag_loved"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_flag_loved"
+                app:layout_constraintStart_toStartOf="@+id/gl_item_search_product"
+                tools:text="$450" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
