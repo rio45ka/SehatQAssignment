@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".feature.home.presentation.view.HomeFragment">
+    tools:context="com.auroraministudio.sehatqassignment.feature.search.presentation.view.SearchFragment">
 
     <data>
 
@@ -11,8 +11,8 @@
             type="com.auroraministudio.sehatqassignment.feature.search.presentation.viewmodel.SearchViewModel" />
 
         <variable
-            name="adapterProduct"
-            type="com.auroraministudio.sehatqassignment.feature.home.presentation.adapter.ProductAdapter" />
+            name="adapterSearch"
+            type="com.auroraministudio.sehatqassignment.feature.search.presentation.adapter.SearchProductAdapter" />
 
     </data>
 
@@ -22,9 +22,9 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_home"
+            android:id="@+id/toolbar_search"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="@dimen/_50sdp"
             android:background="@color/windowBackground"
             android:elevation="@dimen/_3sdp">
 
@@ -35,70 +35,35 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="@dimen/_35sdp"
+                    android:id="@+id/iv_back_search_fragment"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_round_sehatq" />
+                    android:src="@drawable/ic_menu_back_ios" />
 
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_28sdp"
-                    android:layout_marginStart="@dimen/padding_normal"
-                    android:layout_marginEnd="@dimen/padding_normal"
-                    android:layout_weight="1"
-                    android:background="@drawable/rounded_input_type1_normal">
-
-                    <ImageView
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginEnd="@dimen/padding_small"
-                        android:layout_alignParentEnd="true"
-                        android:src="@drawable/ic_menu_search" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/text_medium"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="@dimen/padding_medium"
-                        android:textColor="@color/textHintColor"
-                        android:text="@string/search" />
-
-                </RelativeLayout>
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_search_keyword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:layout_marginEnd="@dimen/padding_small"
+                    android:layout_marginStart="@dimen/padding_small"
+                    android:hint="@string/search"
+                    style="@style/Input.Type1" />
 
             </LinearLayout>
 
         </androidx.appcompat.widget.Toolbar>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_category_home"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
-            tools:listitem="@layout/item_category"
-            tools:itemCount="1"
-            android:scrollbars="none" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/product_promo"
-            android:textSize="@dimen/text_normal"
-            android:layout_marginTop="@dimen/padding_small"
-            android:textStyle="bold"
-            android:textColor="@color/textColor"
-            android:layout_marginStart="@dimen/padding_medium" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_product_home"
+            android:id="@+id/rv_product_search"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/padding_small"
-            app:setAdapter="@{adapterProduct}"
+            app:setAdapter="@{adapterSearch}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_product" />
+            tools:listitem="@layout/item_product_search" />
 
     </LinearLayout>
 </layout>

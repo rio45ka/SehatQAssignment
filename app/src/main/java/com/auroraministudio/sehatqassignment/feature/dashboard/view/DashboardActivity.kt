@@ -13,6 +13,8 @@ import androidx.core.os.postDelayed
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.auroraministudio.sehatqassignment.utils.gone
+import com.auroraministudio.sehatqassignment.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
@@ -36,11 +38,6 @@ class DashboardActivity : AppCompatActivity() {
         setupViews()
     }
 
-    private fun setupViews() {
-        navController = findNavController(R.id.fragNavHost)
-        binding.bottomNavView.setupWithNavController(navController)
-    }
-
     override fun onBackPressed() {
         if (navController.graph.startDestination == navController.currentDestination?.id) {
             if (doubleTapExit) {
@@ -57,5 +54,18 @@ class DashboardActivity : AppCompatActivity() {
         } else {
             super.onBackPressed()
         }
+    }
+
+    private fun setupViews() {
+        navController = findNavController(R.id.fragNavHost)
+        binding.bottomNavView.setupWithNavController(navController)
+    }
+
+    fun showBottomMenu() {
+        binding.bottomNavView.visible()
+    }
+
+    fun hideBottomMenu() {
+        binding.bottomNavView.gone()
     }
 }

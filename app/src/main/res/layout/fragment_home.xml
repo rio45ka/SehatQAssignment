@@ -40,6 +40,7 @@
                     android:src="@drawable/ic_round_sehatq" />
 
                 <RelativeLayout
+                    android:id="@+id/btn_search_home"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/_28sdp"
                     android:layout_marginStart="@dimen/padding_normal"

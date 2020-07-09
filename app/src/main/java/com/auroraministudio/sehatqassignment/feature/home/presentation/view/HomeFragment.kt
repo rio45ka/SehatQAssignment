@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.auroraministudio.sehatqassignment.R
 import com.auroraministudio.sehatqassignment.databinding.FragmentHomeBinding
@@ -36,7 +37,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-        binding.lifecycleOwner = this
+        binding.lifecycleOwner = viewLifecycleOwner
 
         adapterProduct = ProductAdapter(ProductClickListener { product ->
             Timber.e(product.title)
@@ -51,6 +52,8 @@ class HomeFragment : Fragment() {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             adapter = adapterCategory
         }
+
+        setupClick()
 
         return binding.root
     }
@@ -69,6 +72,12 @@ class HomeFragment : Fragment() {
             if (it != null) Toast.makeText(context, "Couldn't refresh, $it", Toast.LENGTH_SHORT)
                 .show()
         })
+    }
+
+    private fun setupClick() {
+        binding.btnSearchHome.setOnClickListener {
+            this.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSearchFragment())
+        }
     }
 
 }
