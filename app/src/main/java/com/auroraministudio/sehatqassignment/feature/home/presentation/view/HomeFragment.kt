@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -62,6 +63,11 @@ class HomeFragment : Fragment() {
 
         homeViewModel.listCategory.observe(viewLifecycleOwner, Observer {
             adapterCategory.categories = it
+        })
+
+        homeViewModel.errorFetchData.observe(viewLifecycleOwner, Observer {
+            if (it != null) Toast.makeText(context, "Couldn't refresh, $it", Toast.LENGTH_SHORT)
+                .show()
         })
     }
 
