@@ -1,5 +1,6 @@
 package com.auroraministudio.sehatqassignment.data.local.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -16,9 +17,10 @@ import com.auroraministudio.sehatqassignment.utils.Const
  */
 @Dao
 interface ProductDao {
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun saveProduct(product: ProductEntity)
+    fun saveAllProduct(products: List<ProductEntity>)
 
     @Query("SELECT * FROM ${Const.TABLE_PRODUCT}")
-    suspend fun getAllProduct(): List<ProductEntity>
+    fun getAllProduct(): LiveData<List<ProductEntity>>
 }

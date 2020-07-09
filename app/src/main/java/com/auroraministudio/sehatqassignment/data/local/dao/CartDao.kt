@@ -17,8 +17,8 @@ import com.auroraministudio.sehatqassignment.utils.Const
 @Dao
 interface CartDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun saveProduct(product: CartEntity)
+    fun saveProduct(product: CartEntity)
 
     @Query("DELETE FROM ${Const.TABLE_CART}")
-    suspend fun clearCart()
+    fun clearCart()
 }

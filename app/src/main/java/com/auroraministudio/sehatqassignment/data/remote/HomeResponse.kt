@@ -1,6 +1,8 @@
 package com.auroraministudio.sehatqassignment.data.remote
 
 import android.os.Parcelable
+import com.auroraministudio.sehatqassignment.data.local.entity.CategoryEntity
+import com.auroraministudio.sehatqassignment.data.local.entity.ProductEntity
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
@@ -31,7 +33,7 @@ data class Data(
 @Parcelize
 data class Category(
     @SerializedName("id")
-    val id: Long? = null,
+    val id: Long,
 
     @SerializedName("imageUrl")
     val imageUrl: String? = null,
@@ -45,7 +47,7 @@ data class Category(
 data class Product(
 
     @SerializedName("id")
-    val id: Long? = null,
+    val id: String,
 
     @SerializedName("imageUrl")
     val imageUrl: String? = null,
@@ -60,7 +62,30 @@ data class Product(
     val price: String? = null,
 
     @SerializedName("loved")
-    val loved: String? = null
+    val loved: Int? = null
 
 ) : Parcelable
+
+fun HomeResponse.asProductDatabaseModel() : List<ProductEntity> {
+    return data?.products!!.map {
+        ProductEntity(
+            id = it.id,
+            imageUrl = it.imageUrl ?: "",
+            title = it.title ?: "",
+            description = it.description ?: "",
+            price = it.price ?: "",
+            loved = it.loved ?: 0
+        )
+    }
+}
+
+fun HomeResponse.asCategoryDatabaseModel() : List<CategoryEntity> {
+    return data?.categories!!.map {
+        CategoryEntity(
+            id = it.id,
+            imageUrl = it.imageUrl ?: "",
+            name = it.name ?: ""
+        )
+    }
+}
 

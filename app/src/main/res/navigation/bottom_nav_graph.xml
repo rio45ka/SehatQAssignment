@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.auroraministudio.sehatqassignment.feature.home.HomeFragment"
+        android:name="com.auroraministudio.sehatqassignment.feature.home.presentation.view.HomeFragment"
         android:label="@string/home"
         tools:layout="@layout/fragment_home" />
     <fragment

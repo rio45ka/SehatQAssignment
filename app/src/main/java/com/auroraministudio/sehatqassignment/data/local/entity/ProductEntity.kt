@@ -2,7 +2,7 @@ package com.auroraministudio.sehatqassignment.data.local.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.auroraministudio.sehatqassignment.domain.model.Product
+import com.auroraministudio.sehatqassignment.data.remote.Product
 import com.auroraministudio.sehatqassignment.utils.Const
 
 /**
@@ -22,13 +22,15 @@ data class ProductEntity constructor(
     val loved: Int
 )
 
-fun ProductEntity.asDomainModel(): Product {
-    return Product(
-        id = id,
-        imageUrl = imageUrl,
-        title = title,
-        description = description,
-        price = price,
-        loved = loved
-    )
+fun List<ProductEntity>.asDomainModel(): List<Product> {
+    return map {
+        Product(
+            id = it.id,
+            imageUrl = it.imageUrl,
+            title = it.title,
+            description = it.description,
+            price = it.price,
+            loved = it.loved
+        )
+    }
 }

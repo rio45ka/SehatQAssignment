@@ -3,6 +3,10 @@ package com.auroraministudio.sehatqassignment.utils
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.auroraministudio.sehatqassignment.R
+import com.bumptech.glide.Glide
 
 /**
  *
@@ -21,3 +25,28 @@ fun goneUnlessReverse(view: View, visible: Boolean) {
 }
 
 
+@BindingAdapter("setImageUrl")
+fun bindImages(imgView: ImageView, imgUrl: String?) {
+    imgUrl?.let {
+        Glide.with(imgView.context)
+            .load(imgUrl)
+            .into(imgView)
+    }
+}
+
+@BindingAdapter("flagImageLoved")
+fun bindImageLoveProduct(imgView: ImageView, loved: Int) {
+    if (loved == 0) {
+        imgView.setImageResource(R.drawable.v_ic_love_normal)
+    } else {
+        imgView.setImageResource(R.drawable.v_ic_love_pressed)
+    }
+}
+
+@BindingAdapter("setAdapter")
+fun RecyclerView.bindRecyclerViewAdapter(adapter: RecyclerView.Adapter<*>) {
+    this.run {
+        this.setHasFixedSize(true)
+        this.adapter = adapter
+    }
+}

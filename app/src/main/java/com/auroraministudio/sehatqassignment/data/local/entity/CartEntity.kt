@@ -2,7 +2,6 @@ package com.auroraministudio.sehatqassignment.data.local.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.auroraministudio.sehatqassignment.domain.model.Cart
 import com.auroraministudio.sehatqassignment.utils.Const
 
 /**
@@ -21,12 +20,3 @@ data class CartEntity constructor(
     val price: String
 )
 
-fun CartEntity.asDomailModel(): Cart {
-    return Cart(
-        id = id,
-        imageUrl = imageUrl,
-        title = title,
-        description = description,
-        price = price
-    )
-}

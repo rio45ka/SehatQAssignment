@@ -12,7 +12,7 @@ import retrofit2.http.GET
  */
 interface SehatQApi {
 
-    @GET("dashboard")
+    @GET("home")
     suspend fun getDataHome(): List<HomeResponse>
 
 }

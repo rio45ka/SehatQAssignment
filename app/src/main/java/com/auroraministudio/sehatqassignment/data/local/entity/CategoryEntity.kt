@@ -2,7 +2,7 @@ package com.auroraministudio.sehatqassignment.data.local.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.auroraministudio.sehatqassignment.domain.model.Category
+import com.auroraministudio.sehatqassignment.data.remote.Category
 import com.auroraministudio.sehatqassignment.utils.Const
 
 /**
@@ -19,10 +19,12 @@ data class CategoryEntity constructor(
     val name: String
 )
 
-fun CategoryEntity.asDoaminModel(): Category {
-    return Category(
-        id = id,
-        imageUrl = imageUrl,
-        name = name
-    )
+fun List<CategoryEntity>.asDomainModel(): List<Category> {
+    return map {
+        Category(
+            id = it.id,
+            imageUrl = it.imageUrl,
+            name = it.name
+        )
+    }
 }
