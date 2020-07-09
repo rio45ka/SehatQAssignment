@@ -19,6 +19,7 @@ import com.auroraministudio.sehatqassignment.feature.dashboard.view.DashboardAct
 import com.auroraministudio.sehatqassignment.feature.search.presentation.adapter.SearchProductAdapter
 import com.auroraministudio.sehatqassignment.feature.search.presentation.adapter.SearchProductClickListener
 import com.auroraministudio.sehatqassignment.feature.search.presentation.viewmodel.SearchViewModel
+import com.auroraministudio.sehatqassignment.utils.hideKeyboard
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import timber.log.Timber
@@ -82,6 +83,7 @@ class SearchFragment : Fragment() {
         })
 
         binding.ivBackSearchFragment.setOnClickListener {
+            requireActivity().hideKeyboard()
             this.findNavController().popBackStack()
         }
     }
