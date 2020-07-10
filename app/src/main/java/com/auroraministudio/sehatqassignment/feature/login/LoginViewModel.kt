@@ -22,6 +22,12 @@ class LoginViewModel @ViewModelInject constructor() : ViewModel() {
     private val _loadingSignIn = MutableLiveData<Boolean>()
     val loadingSignIn: LiveData<Boolean> get() = _loadingSignIn
 
+    private val _loadingSignInFacebok = MutableLiveData<Boolean>()
+    val loadingSignInFacebook: LiveData<Boolean> get() = _loadingSignInFacebok
+
+    private val _loadingSignInGoogle = MutableLiveData<Boolean>()
+    val loadingSignInGoogle: LiveData<Boolean> get() = _loadingSignInGoogle
+
     private val _errorInputEmpty = MutableLiveData<String>()
     val errorInputEmpty: LiveData<String> get() = _errorInputEmpty
 
@@ -30,11 +36,28 @@ class LoginViewModel @ViewModelInject constructor() : ViewModel() {
             _errorInputEmpty.value = null
             _loadingSignIn.value = true
             Handler().postDelayed({
-                _openPageDashboard.value = true
                 _loadingSignIn.value = false
+                _openPageDashboard.value = true
             }, 2000)
         } else {
             _errorInputEmpty.value = "Input for login still empty!"
         }
     }
+
+    fun signInWithFacebook() {
+        _loadingSignInFacebok.value = true
+        Handler().postDelayed({
+            _loadingSignInFacebok.value = false
+            _openPageDashboard.value = true
+        }, 2000)
+    }
+
+    fun signInWithGoogle() {
+        _loadingSignInGoogle.value = true
+        Handler().postDelayed({
+            _loadingSignInGoogle.value = false
+            _openPageDashboard.value = true
+        }, 2000)
+    }
+
 }

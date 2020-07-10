@@ -157,6 +157,17 @@
 
             </LinearLayout>
 
+            <ProgressBar
+                android:id="@+id/pb_login_facebook"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:goneUnless="@{viewModel.loadingSignInFacebook}"
+                app:layout_constraintTop_toTopOf="@+id/btn_login_facebook"
+                app:layout_constraintBottom_toBottomOf="@id/btn_login_facebook"
+                app:layout_constraintEnd_toEndOf="@+id/btn_login_facebook"
+                app:layout_constraintStart_toStartOf="@+id/btn_login_facebook" />
+
             <LinearLayout
                 android:id="@+id/btn_login_facebook"
                 android:layout_width="0dp"
@@ -166,6 +177,8 @@
                 android:layout_marginTop="@dimen/padding_large"
                 android:orientation="horizontal"
                 android:gravity="center"
+                android:onClick="@{() -> viewModel.signInWithFacebook()}"
+                app:goneUnlessReverse="@{viewModel.loadingSignInFacebook}"
                 app:layout_constraintStart_toStartOf="@+id/gl_login_begin"
                 app:layout_constraintTop_toBottomOf="@+id/ll_choice_login">
 
@@ -185,6 +198,17 @@
 
             </LinearLayout>
 
+            <ProgressBar
+                android:id="@+id/pb_login_google"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:goneUnless="@{viewModel.loadingSignInGoogle}"
+                app:layout_constraintTop_toTopOf="@+id/btn_login_google"
+                app:layout_constraintBottom_toBottomOf="@id/btn_login_google"
+                app:layout_constraintEnd_toEndOf="@+id/btn_login_google"
+                app:layout_constraintStart_toStartOf="@+id/btn_login_google" />
+
             <LinearLayout
                 android:id="@+id/btn_login_google"
                 android:layout_width="0dp"
@@ -193,7 +217,9 @@
                 app:layout_constraintEnd_toEndOf="@+id/gl_login_end"
                 android:layout_marginTop="@dimen/padding_small"
                 android:orientation="horizontal"
+                android:onClick="@{() -> viewModel.signInWithGoogle()}"
                 android:gravity="center"
+                app:goneUnlessReverse="@{viewModel.loadingSignInGoogle}"
                 app:layout_constraintStart_toStartOf="@+id/gl_login_begin"
                 app:layout_constraintTop_toBottomOf="@+id/btn_login_facebook">
 
