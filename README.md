@@ -38,25 +38,25 @@ Android Jetpack
 # Screenshoot
 
 ### Login
-<img src="https://github.com/rio45ka/SehatQAssignment/blob/master/screenshot/login.jpeg" width="365" height="650">
+<img src="https://github.com/rio45ka/SehatQAssignment/blob/master/screenshot/login.jpeg" width="315" height="650">
 
 ### Home
-<img src="https://github.com/rio45ka/SehatQAssignment/blob/master/screenshot/dashboard.jpeg" width="365" height="650">
+<img src="https://github.com/rio45ka/SehatQAssignment/blob/master/screenshot/dashboard.jpeg" width="315" height="650">
 
 ### Search Empty
-<img src="https://github.com/rio45ka/SehatQAssignment/blob/master/screenshot/search_empty.jpeg" width="365" height="650">
+<img src="https://github.com/rio45ka/SehatQAssignment/blob/master/screenshot/search_empty.jpeg" width="315" height="650">
 
 ### Search
-<img src="https://github.com/rio45ka/SehatQAssignment/blob/master/screenshot/search.jpeg" width="365" height="650">
+<img src="https://github.com/rio45ka/SehatQAssignment/blob/master/screenshot/search.jpeg" width="315" height="650">
 
 ### Detail
-<img src="https://github.com/rio45ka/SehatQAssignment/blob/master/screenshot/detail.jpeg" width="365" height="650">
+<img src="https://github.com/rio45ka/SehatQAssignment/blob/master/screenshot/detail.jpeg" width="315" height="650">
 
 ### Detail Purchased
-<img src="https://github.com/rio45ka/SehatQAssignment/blob/master/screenshot/detail_cart.jpeg" width="365" height="650">
+<img src="https://github.com/rio45ka/SehatQAssignment/blob/master/screenshot/detail_cart.jpeg" width="315" height="650">
 
 ### Share
-<img src="https://github.com/rio45ka/SehatQAssignment/blob/master/screenshot/share.jpeg" width="365" height="650">
+<img src="https://github.com/rio45ka/SehatQAssignment/blob/master/screenshot/share.jpeg" width="315" height="650">
 
 ### Purchased History
-<img src="https://github.com/rio45ka/SehatQAssignment/blob/master/screenshot/purchase_history.jpeg" width="365" height="650">
+<img src="https://github.com/rio45ka/SehatQAssignment/blob/master/screenshot/purchase_history.jpeg" width="315" height="650">
