@@ -3,7 +3,6 @@ package com.auroraministudio.sehatqassignment.utils
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.auroraministudio.sehatqassignment.R
 import com.bumptech.glide.Glide

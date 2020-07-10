@@ -30,5 +30,6 @@
 
     <color name="white">#FFFFFF</color>
     <color name="facebook_color">#3b5998</color>
+    <color name="facebook_color_pressed">#507AD1</color>
     <color name="dividerColor">#4DA8B6C8</color>
 </resources>

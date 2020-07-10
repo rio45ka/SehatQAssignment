@@ -2,25 +2,53 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".feature.profile.ProfileFragment">
+    tools:context=".feature.profile.presentation.view.ProfileFragment">
 
     <data>
 
+        <variable
+            name="adapterCart"
+            type="com.auroraministudio.sehatqassignment.feature.profile.presentation.adapter.CartProductAdapter" />
+
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_title_profile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/profile"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_cart"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/windowBackground"
+            android:elevation="@dimen/_3sdp">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_title_toolbar_profile_fragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/text_large_medium"
+                    android:text="@string/purchase_history"/>
+
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_cart_product"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:setAdapter="@{adapterCart}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_cart_product" />
+
+    </LinearLayout>
 </layout>

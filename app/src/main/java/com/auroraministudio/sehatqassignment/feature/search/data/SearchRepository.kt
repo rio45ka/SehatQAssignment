@@ -1,7 +1,6 @@
 package com.auroraministudio.sehatqassignment.feature.search.data
 
 import android.annotation.SuppressLint
-import androidx.lifecycle.LiveData
 import com.auroraministudio.sehatqassignment.domain.model.Product
 import com.auroraministudio.sehatqassignment.utils.SampleData
 import javax.inject.Inject

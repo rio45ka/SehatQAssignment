@@ -1,6 +1,5 @@
 package com.auroraministudio.sehatqassignment.data.services
 
-import com.auroraministudio.sehatqassignment.data.remote.Data
 import com.auroraministudio.sehatqassignment.data.remote.HomeResponse
 import retrofit2.http.GET
 

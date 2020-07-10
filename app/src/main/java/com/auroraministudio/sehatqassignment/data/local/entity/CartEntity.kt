@@ -3,7 +3,6 @@ package com.auroraministudio.sehatqassignment.data.local.entity
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.auroraministudio.sehatqassignment.domain.model.Cart
-import com.auroraministudio.sehatqassignment.domain.model.Product
 import com.auroraministudio.sehatqassignment.utils.Const
 
 /**
@@ -15,12 +14,12 @@ import com.auroraministudio.sehatqassignment.utils.Const
 @Entity(tableName = Const.TABLE_CART)
 data class CartEntity constructor(
     @PrimaryKey
+    val date: String,
     val id: String,
     val imageUrl: String,
     val title: String,
     val description: String,
-    val price: String,
-    val date: String
+    val price: String
 )
 
 fun List<CartEntity>.asDomainModel(): List<Cart> {

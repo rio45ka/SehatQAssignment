@@ -29,12 +29,12 @@
         tools:layout="@layout/fragment_cart" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.auroraministudio.sehatqassignment.feature.profile.ProfileFragment"
+        android:name="com.auroraministudio.sehatqassignment.feature.profile.presentation.view.ProfileFragment"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile" >
         <action
-            android:id="@+id/action_profileFragment_to_detailProductFragment"
-            app:destination="@id/detailProductFragment" />
+            android:id="@+id/action_profileFragment_to_cartDetailProductFragment"
+            app:destination="@id/cartDetailProductFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -53,5 +53,14 @@
         <argument
             android:name="selectedProduct"
             app:argType="com.auroraministudio.sehatqassignment.domain.model.Product" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartDetailProductFragment"
+        android:name="com.auroraministudio.sehatqassignment.feature.cartdetail.presentation.view.CartDetailProductFragment"
+        android:label="CartDetailProductFragment"
+        tools:layout="@layout/fragment_detail_cart_product">
+        <argument
+            android:name="selectedCartProduct"
+            app:argType="com.auroraministudio.sehatqassignment.domain.model.Cart" />
     </fragment>
 </navigation>

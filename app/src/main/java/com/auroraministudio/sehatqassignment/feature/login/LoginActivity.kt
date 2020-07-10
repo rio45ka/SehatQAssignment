@@ -1,23 +1,20 @@
 package com.auroraministudio.sehatqassignment.feature.login
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.auroraministudio.sehatqassignment.R
 import com.auroraministudio.sehatqassignment.databinding.ActivityLoginBinding
 import com.auroraministudio.sehatqassignment.feature.dashboard.view.DashboardActivity
 import com.auroraministudio.sehatqassignment.utils.getTextFromInput
-import com.auroraministudio.sehatqassignment.utils.getTimeNow
 import com.auroraministudio.sehatqassignment.utils.hideKeyboard
 import com.auroraministudio.sehatqassignment.utils.setFromHtmlTv
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import timber.log.Timber
-import java.util.*
 
 @ExperimentalCoroutinesApi
 @AndroidEntryPoint

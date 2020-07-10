@@ -2,16 +2,12 @@ package com.auroraministudio.sehatqassignment.utils
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.ActivityNotFoundException
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.os.Build
 import android.text.Html
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
 import java.text.SimpleDateFormat

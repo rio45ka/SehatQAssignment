@@ -6,7 +6,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.auroraministudio.sehatqassignment.data.local.entity.CartEntity
-import com.auroraministudio.sehatqassignment.data.local.entity.ProductEntity
 import com.auroraministudio.sehatqassignment.utils.Const
 
 /**

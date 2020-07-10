@@ -4,14 +4,10 @@ import androidx.lifecycle.Transformations.map
 import com.auroraministudio.sehatqassignment.data.local.dao.CategoryDao
 import com.auroraministudio.sehatqassignment.data.local.dao.ProductDao
 import com.auroraministudio.sehatqassignment.data.local.entity.asDomainModel
-import com.auroraministudio.sehatqassignment.data.remote.HomeResponse
 import com.auroraministudio.sehatqassignment.data.remote.asCategoryDatabaseModel
 import com.auroraministudio.sehatqassignment.data.remote.asProductDatabaseModel
 import com.auroraministudio.sehatqassignment.data.services.SehatQApi
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
