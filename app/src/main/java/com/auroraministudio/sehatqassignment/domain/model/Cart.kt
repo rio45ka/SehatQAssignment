@@ -15,5 +15,6 @@ data class Cart(
     val imageUrl: String,
     val title: String,
     val description: String,
-    val price: String
+    val price: String,
+    val date: String
 ) : Parcelable

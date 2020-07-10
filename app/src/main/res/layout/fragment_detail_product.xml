@@ -88,6 +88,7 @@
                     android:layout_width="@dimen/_130sdp"
                     android:layout_height="@dimen/_35sdp"
                     android:layout_alignParentEnd="true"
+                    android:onClick="@{() -> viewModel.actionBuyProduct(product)}"
                     android:layout_centerVertical="true"
                     android:layout_margin="@dimen/padding_medium"
                     android:text="@string/buy"

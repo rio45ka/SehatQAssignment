@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -37,11 +38,8 @@ class DetailProductFragment : Fragment() {
         val news = arguments?.getParcelable<Product>(Const.ARGUMENT_DETAIL_PRODUCT)
         news?.let { detailProductViewModel.setData(it) }
 
-        detailProductViewModel.product.observe(viewLifecycleOwner, Observer {
-            binding.product = it
-        })
-
         setupUi()
+        setupObserver()
 
         return binding.root
     }
@@ -83,6 +81,16 @@ class DetailProductFragment : Fragment() {
                 1 -> { detailProductViewModel.actionRemovedLoveProduct() }
             }
         }
+    }
+
+    private fun setupObserver() {
+        detailProductViewModel.product.observe(viewLifecycleOwner, Observer {
+            binding.product = it
+        })
+
+        detailProductViewModel.successBuyProduct.observe(viewLifecycleOwner, Observer {
+            if (null != it || it == true) Toast.makeText(context, "Success buy product!", Toast.LENGTH_SHORT).show()
+        })
     }
 
 }

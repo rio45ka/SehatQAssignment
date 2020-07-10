@@ -1,5 +1,6 @@
 package com.auroraministudio.sehatqassignment.data.local.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -21,4 +22,7 @@ interface CartDao {
 
     @Query("DELETE FROM ${Const.TABLE_CART}")
     fun clearCart()
+
+    @Query("SELECT * FROM ${Const.TABLE_CART}")
+    fun getAllProductCart(): LiveData<List<CartEntity>>
 }

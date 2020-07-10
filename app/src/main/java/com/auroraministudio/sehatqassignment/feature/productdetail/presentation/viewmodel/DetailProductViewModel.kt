@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.auroraministudio.sehatqassignment.domain.model.Product
+import com.auroraministudio.sehatqassignment.feature.productdetail.data.DetailProductRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 
@@ -17,7 +18,7 @@ import kotlinx.coroutines.launch
  *
  */
 @ExperimentalCoroutinesApi
-class DetailProductViewModel @ViewModelInject constructor() :
+class DetailProductViewModel @ViewModelInject constructor(private val repository: DetailProductRepository) :
     ViewModel() {
 
     private val _product = MutableLiveData<Product>()
@@ -28,6 +29,9 @@ class DetailProductViewModel @ViewModelInject constructor() :
 
     private val _showAnimLikeProduct = MutableLiveData<Boolean>()
     val showAnimLikeProduct: LiveData<Boolean> get() = _showAnimLikeProduct
+
+    private val _successBuyProduct = MutableLiveData<Boolean>()
+    val successBuyProduct : LiveData<Boolean> get() = _successBuyProduct
 
     fun setData(item: Product) {
         viewModelScope.launch { _product.value = item }
@@ -43,5 +47,12 @@ class DetailProductViewModel @ViewModelInject constructor() :
 
     fun actionRemovedLoveProduct() {
         _hasLikeProduct.value = 0
+    }
+
+    fun actionBuyProduct(product: Product) {
+        viewModelScope.launch {
+            repository.actionBuyProduct(product)
+            _successBuyProduct.value = true
+        }
     }
 }

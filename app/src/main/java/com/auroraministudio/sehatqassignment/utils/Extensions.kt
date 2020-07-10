@@ -1,5 +1,6 @@
 package com.auroraministudio.sehatqassignment.utils
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Context
@@ -13,6 +14,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
+import java.text.SimpleDateFormat
+import java.util.*
 import java.util.regex.Pattern
 
 /**
@@ -67,3 +70,10 @@ fun Activity.hideKeyboard() {
 }
 
 fun Context.getColorCompat(color: Int) = ContextCompat.getColor(this, color)
+
+@SuppressLint("SimpleDateFormat")
+fun getTimeNow() : String {
+    val calendar = Calendar.getInstance().time
+    val format = SimpleDateFormat("dd MMMM yyyy HH:mm:ss")
+    return format.format(calendar)
+}
