@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailProductFragment"
+            app:destination="@id/detailProductFragment" />
     </fragment>
     <fragment
         android:id="@+id/feedFragment"
@@ -28,10 +31,27 @@
         android:id="@+id/profileFragment"
         android:name="com.auroraministudio.sehatqassignment.feature.profile.ProfileFragment"
         android:label="@string/profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_detailProductFragment"
+            app:destination="@id/detailProductFragment" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.auroraministudio.sehatqassignment.feature.search.presentation.view.SearchFragment"
         android:label="@string/search"
-        tools:layout="@layout/fragment_search"/>
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_detailProductFragment"
+            app:destination="@id/detailProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailProductFragment"
+        android:name="com.auroraministudio.sehatqassignment.feature.productdetail.presentation.view.DetailProductFragment"
+        android:label="fragment_detail_product"
+        tools:layout="@layout/fragment_detail_product">
+        <argument
+            android:name="selectedProduct"
+            app:argType="com.auroraministudio.sehatqassignment.domain.model.Product" />
+    </fragment>
 </navigation>

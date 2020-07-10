@@ -16,6 +16,7 @@ import androidx.navigation.fragment.findNavController
 import com.auroraministudio.sehatqassignment.R
 import com.auroraministudio.sehatqassignment.databinding.FragmentSearchBinding
 import com.auroraministudio.sehatqassignment.feature.dashboard.view.DashboardActivity
+import com.auroraministudio.sehatqassignment.feature.home.presentation.view.HomeFragmentDirections
 import com.auroraministudio.sehatqassignment.feature.search.presentation.adapter.SearchProductAdapter
 import com.auroraministudio.sehatqassignment.feature.search.presentation.adapter.SearchProductClickListener
 import com.auroraministudio.sehatqassignment.feature.search.presentation.viewmodel.SearchViewModel
@@ -40,23 +41,16 @@ class SearchFragment : Fragment() {
         binding = FragmentSearchBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
 
-        adapterSearch = SearchProductAdapter(SearchProductClickListener { product ->
-            Timber.e(product.title)
+        adapterSearch = SearchProductAdapter(SearchProductClickListener {
+            searchViewModel.displayProductDetail(it)
         })
 
         binding.adapterSearch = adapterSearch
 
         setupUi()
+        setupObserver()
 
         return binding.root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        searchViewModel.listProduct.observe(viewLifecycleOwner, Observer {
-            adapterSearch.products = it
-        })
     }
 
     override fun onAttach(context: Context) {
@@ -86,6 +80,21 @@ class SearchFragment : Fragment() {
             requireActivity().hideKeyboard()
             this.findNavController().popBackStack()
         }
+    }
+
+    private fun setupObserver() {
+        searchViewModel.listProduct.observe(viewLifecycleOwner, Observer {
+            adapterSearch.products = it
+        })
+
+        searchViewModel.navigateToSelectedProduct.observe(viewLifecycleOwner, Observer {
+            if (null != it) {
+                this.findNavController().navigate(
+                    SearchFragmentDirections.actionSearchFragmentToDetailProductFragment(it)
+                )
+                searchViewModel.displayCompleteProductDetail()
+            }
+        })
     }
 
 }

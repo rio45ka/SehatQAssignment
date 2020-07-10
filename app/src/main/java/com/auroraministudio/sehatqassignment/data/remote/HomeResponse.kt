@@ -55,7 +55,7 @@ data class Product(
     @SerializedName("title")
     val title: String? = null,
 
-    @SerializedName("desciption")
+    @SerializedName("description")
     val description: String? = null,
 
     @SerializedName("price")

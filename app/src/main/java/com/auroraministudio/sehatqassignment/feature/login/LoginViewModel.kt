@@ -2,6 +2,7 @@ package com.auroraministudio.sehatqassignment.feature.login
 
 import android.os.Handler
 import androidx.hilt.lifecycle.ViewModelInject
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -16,13 +17,13 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 class LoginViewModel @ViewModelInject constructor() : ViewModel() {
 
     private val _openPageDashboard = MutableLiveData<Boolean>()
-    val openPageDashboard get() = _openPageDashboard
+    val openPageDashboard: LiveData<Boolean> get() = _openPageDashboard
 
     private val _loadingSignIn = MutableLiveData<Boolean>()
-    val loadingSignIn get() = _loadingSignIn
+    val loadingSignIn: LiveData<Boolean> get() = _loadingSignIn
 
     private val _errorInputEmpty = MutableLiveData<String>()
-    val errorInputEmpty get() = _errorInputEmpty
+    val errorInputEmpty: LiveData<String> get() = _errorInputEmpty
 
     fun signInEmail(email: String, password: String) {
         if (email.isNotEmpty() && password.isNotEmpty()) {

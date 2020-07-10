@@ -39,12 +39,12 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
 
-        adapterProduct = ProductAdapter(ProductClickListener { product ->
-            Timber.e(product.title)
+        adapterProduct = ProductAdapter(ProductClickListener {
+            homeViewModel.displayProductDetail(it)
         })
 
-        adapterCategory = CategoryAdapter(CategoryClickListener { category ->
-            Timber.e(category.name)
+        adapterCategory = CategoryAdapter(CategoryClickListener {
+            Timber.e(it.name)
         })
 
         binding.adapterProduct = adapterProduct
@@ -54,12 +54,18 @@ class HomeFragment : Fragment() {
         }
 
         setupClick()
+        setupObserver()
 
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    private fun setupClick() {
+        binding.btnSearchHome.setOnClickListener {
+            this.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSearchFragment())
+        }
+    }
+
+    private fun setupObserver() {
         homeViewModel.listProduct.observe(viewLifecycleOwner, Observer {
             adapterProduct.products = it
         })
@@ -72,12 +78,13 @@ class HomeFragment : Fragment() {
             if (it != null) Toast.makeText(context, "Couldn't refresh, $it", Toast.LENGTH_SHORT)
                 .show()
         })
-    }
 
-    private fun setupClick() {
-        binding.btnSearchHome.setOnClickListener {
-            this.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSearchFragment())
-        }
+        homeViewModel.navigateToSelectedProduct.observe(viewLifecycleOwner, Observer {
+            if (null != it) {
+                this.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailProductFragment(it))
+                homeViewModel.displayCompleteProductDetail()
+            }
+        })
     }
 
 }

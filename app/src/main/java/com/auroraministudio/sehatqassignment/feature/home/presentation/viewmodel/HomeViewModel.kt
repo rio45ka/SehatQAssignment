@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.auroraministudio.sehatqassignment.domain.model.Product
 import com.auroraministudio.sehatqassignment.feature.home.data.HomeRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -23,7 +24,10 @@ class HomeViewModel @ViewModelInject constructor(private val repository: HomeRep
     val listCategory = repository.categories
 
     private val _errorFetchData = MutableLiveData<String>()
-    val errorFetchData get() = _errorFetchData
+    val errorFetchData: LiveData<String> get() = _errorFetchData
+
+    private val _navigateToSelectedProduct = MutableLiveData<Product>()
+    val navigateToSelectedProduct: LiveData<Product> get() = _navigateToSelectedProduct
 
     init {
         fetchData()
@@ -37,5 +41,13 @@ class HomeViewModel @ViewModelInject constructor(private val repository: HomeRep
                 _errorFetchData.value = e.message
             }
         }
+    }
+
+    fun displayProductDetail(product: Product) {
+        _navigateToSelectedProduct.value = product
+    }
+
+    fun displayCompleteProductDetail() {
+        _navigateToSelectedProduct.value = null
     }
 }
