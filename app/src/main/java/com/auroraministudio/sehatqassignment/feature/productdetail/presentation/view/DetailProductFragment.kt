@@ -1,6 +1,7 @@
 package com.auroraministudio.sehatqassignment.feature.productdetail.presentation.view
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -61,7 +62,12 @@ class DetailProductFragment : Fragment() {
         }
 
         binding.btnShareDetailProduct.setOnClickListener {
-
+            val sendIntent: Intent = Intent().apply {
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_TEXT, "${detailProductViewModel.product.value?.imageUrl}")
+                type = "text/plain"
+            }
+            startActivity(sendIntent)
         }
     }
 
