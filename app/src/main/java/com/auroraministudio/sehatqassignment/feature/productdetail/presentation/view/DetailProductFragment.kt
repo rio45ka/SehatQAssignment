@@ -32,6 +32,7 @@ class DetailProductFragment : Fragment() {
     ): View? {
         binding = FragmentDetailProductBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
+        binding.viewModel = detailProductViewModel
 
         val news = arguments?.getParcelable<Product>(Const.ARGUMENT_DETAIL_PRODUCT)
         news?.let { detailProductViewModel.setData(it) }
@@ -68,6 +69,19 @@ class DetailProductFragment : Fragment() {
                 type = "text/plain"
             }
             startActivity(sendIntent)
+        }
+
+        binding.btnLovedProduct.setOnClickListener {
+            when (detailProductViewModel.hasLikeProduct.value) {
+                0 -> {
+                    detailProductViewModel.actionAddLovedProduct()
+                    binding.animLovedProduct.setAnimation("like_anim.json")
+                    binding.animLovedProduct.playAnimation()
+                    binding.animLovedProduct.repeatCount = 0
+
+                }
+                1 -> { detailProductViewModel.actionRemovedLoveProduct() }
+            }
         }
     }
 

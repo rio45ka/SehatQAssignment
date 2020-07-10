@@ -10,6 +10,10 @@
             name="product"
             type="com.auroraministudio.sehatqassignment.domain.model.Product" />
 
+        <variable
+            name="viewModel"
+            type="com.auroraministudio.sehatqassignment.feature.productdetail.presentation.viewmodel.DetailProductViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -128,6 +132,38 @@
                     app:layout_constraintTop_toBottomOf="@+id/iv_cover_detail_product"
                     android:text="@{product.title}"
                     tools:text="Title" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/anim_loved_product"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginEnd="@dimen/padding_normal"
+                    app:goneUnless="@{viewModel.showAnimLikeProduct}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_title_detail_product"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_title_detail_product"
+                    app:lottie_fileName="like_anim.json"
+                    app:lottie_loop="false"/>
+
+                <RelativeLayout
+                    android:id="@+id/btn_loved_product"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginEnd="@dimen/padding_normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:goneUnlessReverse="@{viewModel.showAnimLikeProduct}"
+                    app:layout_constraintTop_toTopOf="@+id/tv_title_detail_product"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_title_detail_product">
+
+                    <ImageView
+                        android:id="@+id/iv_flag_loved_detail_product"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerInParent="true"
+                        app:flagImageLoved="@{viewModel.hasLikeProduct}"
+                        app:srcCompat="@drawable/v_ic_love_normal"/>
+
+                </RelativeLayout>
 
                 <TextView
                     android:id="@+id/tv_description_detail_product"
