@@ -1,5 +1,6 @@
 package com.auroraministudio.sehatqassignment.utils
 
+import com.auroraministudio.sehatqassignment.domain.model.Category
 import com.auroraministudio.sehatqassignment.domain.model.Product
 
 /**
@@ -9,6 +10,13 @@ import com.auroraministudio.sehatqassignment.domain.model.Product
  *
  */
 class SampleData {
+
+    val categories = listOf(
+        Category(21, "https://img.icons8.com/bubbles/2x/t-shirt.png", "Baju"),
+        Category(22, "https://img.icons8.com/flat_round/2x/long-shorts.png", "Celana"),
+        Category(24, "https://img.icons8.com/flat_round/2x/summer-hat.png", "Topi"),
+        Category(25, "https://img.icons8.com/color/2x/red-purse.png", "Tas")
+    )
 
     val product = listOf(
         Product(
